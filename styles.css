@@ -1,0 +1,61 @@
+body{
+    background-color: rgb(184, 106, 230);
+    color: white;
+    font-family: "Comic Sans MS",cursive;
+}
+@keyframes an1{
+    from{
+        left:90%;
+    }
+    to{
+        left:2%;
+    }
+}
+@keyframes rot{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(3600deg);
+    }
+}
+#image{
+
+    opacity: 100%;
+    width:25%;
+    position:relative;
+    left: 35%;
+}
+#image:hover{
+    animation-name: rot;
+    animation-duration: 3s;
+}
+#cat{
+    position:absolute;
+    width: 5%;
+    left:90%;
+    top: 95%;
+}
+#cat2{
+    position:absolute;
+    width: 5%;
+    left:5%;
+    top: 95%;
+}
+#foot{
+    width:100%;
+    height: 5%;
+    position: absolute;
+    top: 95%;
+    background-color: cyan;
+    text-align: center;
+    left:0%;
+}
+#thumb{
+    animation-name: an1;
+    animation-duration: 2s;
+    position:absolute;
+    width: 150px;
+    left:2%;
+    top: 50%;
+}
