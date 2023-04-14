@@ -50,14 +50,24 @@ body{
     left:5%;
     top: 95%;
 }
-#foot{
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+ul li {
+    display:list-item;
+    padding: -5% 0%;
+    margin: -0.3% 0.3%;
+    font-size: 100%;
+}
+nav{
     position: fixed;
-    width:100%;
-    height: 5%;
-    left:0px;
-    bottom: 0px;
-    background-color: cyan;
-    text-align: center;
+    bottom: 0;
+    left:0;
+    height:5%;
+    width: 100%;
+    background: cyan;
 }
 #thumb{
     animation-name: an1;
@@ -89,4 +99,8 @@ li a{
     animation-name: scale;
     animation-duration: 2s;
     width: 390px;
+}
+#shop{
+    background-image: url("/images/lem.png");
+    
 }
