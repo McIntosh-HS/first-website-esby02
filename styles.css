@@ -70,6 +70,7 @@ nav{
     height:5%;
     width: 100%;
     background: cyan;
+    font-family: "Comic Sans MS", cursive;
 }
 #thumb{
     animation-name: an1;
@@ -106,6 +107,7 @@ li a{
     background-image: url("/images/lem.png");
     background-repeat: repeat repeat;
     color: black;
+    font-family: "Papyrus", fantasy;
 }
 .center{
     text-align: center;
