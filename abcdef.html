@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="/images/lemfav.ico">
+    </head>
+    <body>
+        <main>
+            <canvas id="mycanvas" style="margin-left: auto; margin-right:auto;"></canvas> 
+        </main>
+        <footer>
+            <nav class="foot">
+                <ul class="foot">
+                    <li class="foot"><a href="about.html">About</a></li>
+                    <li class="foot"><a href="why.html">Why?</a><li>
+                    <li class="foot"><a href="index.html">Home</a> </li>
+                    <li class="foot"><a href="gallery.html">Gallery</a> </li>
+                    <li class="foot"><a href="contact.html">Contact</a> </li>
+                    <li class="foot"><a href="shop.html">Shop</a> </li>
+                </ul>
+            </nav>
+            <img id="cat" src="/images/cat.gif">
+            <img id="cat2" src="/images/cat.gif">
+        </footer>
+    </body>
+    <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+        <script>
+            var programCode = function(processingInstance) {
+                with (processingInstance) {
+                    size(400, 400); 
+                    frameRate(30);
+                    rectMode(CENTER);
+                    noCursor();
+                    noStroke();
+                    var page="menu";
+                    var clicked = false;
+                    var x =200;
+                    var y = 350;
+                    var keyIsPressed = false;
+                    var bounceleft = false;
+                    var bounceright = false;
+                    keyPressed=function(){
+                        keyIsPressed = true;
+                    }
+                    mouseClicked=function(){
+                        clicked = true;
+                    }
+                    lemon = loadImage("/images/lemon_PNG25270(2).png");
+                    smile = loadImage("/images/thumbs.gif");
+                    congrats = loadImage("/images/congrats-7.gif");
+                    draw=function(){
+                        if(page==="menu"){
+                            background(255,0,0);
+
+                            fill(0,255,0);
+                            text(mouseX+"\n"+mouseY+"\n"+clicked,50,50);
+
+                            fill(255);
+                            textFont(createFont("Impact"),25);
+                            textAlign(CENTER);
+                            text("Lemon Quest",200,50);
+                            rect(200,200,150,70);
+                            fill(0,0,0);
+                            text("play",200,200);
+                            if(mouseX>125&&mouseX<275&&mouseY>165&&mouseY<235){
+                                fill(146,252,247);
+                                rect(200,200,150,70);
+                                fill(0,0,0);
+                                text("play",200,200);
+                                if(clicked){
+                                    page = "play";
+                                }
+                            }
+                           
+                            
+                        }
+                        if(page==="play"){
+                            //music = new SoundFile(this, "something.mp3");
+                            background(0,255,0);
+                            fill(255,0,0);
+                            rect(200,0,400,50);
+                            fill(0);
+                            textFont(createFont("comic sans ms"),12);
+                            text("End",200,20);
+                            image(lemon,x,y,20,20+cos(frameCount/2)*2);
+                            if(keyIsPressed&&keyCode===UP){
+                                y-=2;
+                            }
+                            if(keyIsPressed&&keyCode===DOWN){
+                                y+=2;
+                            }
+                            if(keyIsPressed&&keyCode===LEFT){
+                                x-=2;
+                            }
+                            if(keyIsPressed&&keyCode===RIGHT){
+                                x+=2;
+                            }
+                            if(x>390){
+                                bounceleft=true;
+                                bounceright=false;
+                            }
+                            if(x<10){
+                                bounceright=true;
+                                bounceleft=false;
+                            }
+                            if(bounceleft){
+                                x-=15;
+                            }
+                            if(bounceright){
+                                x+=15;
+                            }
+                            if(y>390){
+                                y=390;
+                            }
+                            if(y<20){
+                                page="win";
+                            }
+                        }
+                        if(page==="win"){
+                            background(0,0,255);
+                            image(smile,0,350,150,150);
+                            image(congrats,300,0,100,100);
+                            fill(255);
+                            textFont(createFont("comic sans ms"),50+(cos(frameCount/3)*20));
+                            text("You Win!",200+cos(frameCount/2)*3,200);
+                            
+                        }
+                        keyIsPressed = false;
+                        clicked = false;
+                        fill(50,50,50);
+                        ellipse(mouseX,mouseY,10,10);
+                    };
+                    
+                }};
+
+
+                var canvas = document.getElementById("mycanvas"); 
+                var processingInstance = new Processing(canvas, programCode); 
+        </script>
+</html>
