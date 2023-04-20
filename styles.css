@@ -109,11 +109,57 @@ li a{
     color: black;
     font-family: "Papyrus", fantasy;
 }
-.center{
+.center {
     text-align: center;
 }
-#mycanvas{
+#mycanvas{ 
     display:block;
     margin-left: auto;
     margin-right: auto;
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+    background: rgb(255, 255, 255);
+    color:black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left:auto;
+    margin-right:auto;
+}
+td, th {
+    border: 1px solid #2c2c2c;
+    text-align: center;
+    padding: 8px;
+}
+@keyframes item {
+    from{
+        width:15%;
+        height:15%;
+    }
+    to{
+        width:17%;
+        height:17%;
+    }
+}
+.store img{
+    width: 15%;
+    height:15%;
+    border-radius: 5%;
+}
+.store{
+    font-family: "comic sans ms", cursive;
+    text-align: center;
+}
+.store p{
+    text-align: center;
+    background-color:white;
+    width: fit-content;
+    margin-left:auto;
+    margin-right:auto;
+}
+.store img:hover{
+    animation-name: item;
+    animation-duration: 2s;
+    width:17%;
+    height:17%;
 }
