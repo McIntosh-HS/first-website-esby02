@@ -15,18 +15,23 @@
                 <ul class="foot">
                     <li class="foot"><a href="about.html">About</a></li>
                     <li class="foot"><a href="why.html">Why?</a><li>
-                    <li class="foot"><a href="index.html">Home</a> </li>
                     <li class="foot"><a href="gallery.html">Gallery</a> </li>
+                    <li class="foot"><a href="index.html">Home</a> </li>
                     <li class="foot"><a href="contact.html">Contact</a> </li>
                     <li class="foot"><a href="shop.html">Shop</a> </li>
+                    <li class="foot"><a href="/../abcdef.html">Lemon Quest</a> </li>
                 </ul>
             </nav>
             <img id="cat" src="/images/cat.gif">
             <img id="cat2" src="/images/cat.gif">
         </footer>
+        <div id="m-placeholder"></div>
+        
     </body>
     <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
         <script>
+            var playm = document.getElementById("m-placeholder");
+
             var programCode = function(processingInstance) {
                 with (processingInstance) {
                     size(400, 400); 
@@ -50,6 +55,8 @@
                     lemon = loadImage("/images/lemon_PNG25270(2).png");
                     smile = loadImage("/images/thumbs.gif");
                     congrats = loadImage("/images/congrats-7.gif");
+                    
+
                     draw=function(){
                         if(page==="menu"){
                             background(255,0,0);
@@ -71,13 +78,14 @@
                                 text("play",200,200);
                                 if(clicked){
                                     page = "play";
+                                    playm.innerHTML="<audio src='misc/royaltyfreemet.mp3' loop autoplay>audio not compatible.</audio>";
                                 }
                             }
                            
                             
                         }
                         if(page==="play"){
-                            //music = new SoundFile(this, "something.mp3");
+                            
                             background(0,255,0);
                             fill(255,0,0);
                             rect(200,0,400,50);
@@ -115,12 +123,13 @@
                                 y=390;
                             }
                             if(y<20){
+                                playm.innerHTML="<audio src='misc/conf.mp3' autoplay>audio not compatible.</audio>";
                                 page="win";
                             }
                         }
                         if(page==="win"){
                             background(0,0,255);
-                            image(smile,0,350,150,150);
+                            image(smile,0,250,150,150);
                             image(congrats,300,0,100,100);
                             fill(255);
                             textFont(createFont("comic sans ms"),50+(cos(frameCount/3)*20));
